@@ -2,7 +2,24 @@
 <html lang="en" dir="ltr">
 <center>
   <head>
-    <link rel="stylesheet" href="style2.css">
+    <script>
+    // var x = document.getElementById("floating-menu");
+    // x.style.visibility ="hidden";
+    function func() {
+      var x = document.getElementById("floating-menu");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+    function f1(){
+
+      window.location='signin.php';
+
+    }
+    </script>
+    <link rel="stylesheet" href="style4.css">
     <style>
 /* table {
   font-family: arial, sans-serif;
@@ -27,15 +44,46 @@ tr:nth-child(even) {
     $con->query($df);
     $us="USE PORT";
     $con->query($us);
+    if($_SESSION['username']==NULL || $_SESSION['type']!='Admin'){
+      echo"<script>window.location.href='signin.php'</script>";
+    }
      ?>
+     <?php
+     if(isset($_POST['let'])){
+       echo"";
+     }
+     if(isset($_POST['let1'])){
+       session_destroy();
+       echo"<script>window.location='signin.php';</script>";
+     }
+      ?>
     <meta charset="utf-8">
     <title>Main2</title>
 
   </head>
   <body class="bg1">
-    <div class="topnav">
-      <a href="signin.php">log out</a>
-    </div>
+    <div class="topnav" align="right">
+  <!-- <button onclick="func()"><img src="user.png" /></button> -->
+  <button class="but" onclick="func()"><img src="user.png" width="20px" /></button>
+  <!-- <form action="welcome1.php" method="POST">
+    <input type="image" src="user.png" width="20px" name="but" class="but" >
+  </form> -->
+</div>
+
+<nav id="floating-menu">
+  <center>
+  <img src="office.png" width="60px" />
+
+    <?php echo "<h1 style=' font-family:Courier New;' ><b>" .$_SESSION['username']."</b></h1>" ?> <br>
+  <form action="welcome1.php" method="POST">
+    <input type="submit" class="buti" name="let" value="My Profile">
+    <input type="submit" class="buti" name="let1" value="Log out">
+  </form>
+  <!-- <button class="buti" onclick="window.location='signin.php'">View Profile</button><br><br> -->
+<!-- <button class="buti" onclick="f1()">Log out</button><br><br><br> -->
+
+</nav>
+<br><br>
     <!-- <link rel="stylesheet" href="style.css"> -->
     <div class="box1">
     <h2>Add Authority</h2>

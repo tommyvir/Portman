@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <script>
+    function func1(){
+      window.location.href="dockdet.php";
+    }
+    // var x = document.getElementById("floating-menu");
+    // x.style.visibility ="hidden";
+    function func() {
+      var x = document.getElementById("floating-menu");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+    function f1(){
+
+      window.location='signin.php';
+
+    }
+    </script>
     <style >
 
   html {
@@ -28,7 +48,7 @@
   }
 
     </style>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style4.css">
     <?php
     session_start();
     $con=new mysqli("localhost","root","");
@@ -38,15 +58,51 @@
     $con->query($us);
     $ta="CREATE TABLE IF NOT EXISTS Docks(Dock_No int NOT NULL UNIQUE,Ship_id varchar(10) PRIMARY KEY,Size int NOT NULL,Company varchar(255) NOT NULL,Type varchar(10) NOT NULL,Entry_Date Date)";
     $con->query($ta);
-
+    if($_SESSION['username']==NULL || $_SESSION['type']!='Authority'){
+      echo"<script>window.location.href='signin.php'</script>";
+    }
      ?>
      <center>
     <meta charset="utf-8">
     <title>Port Authority</title>
+    <?php
+    if(isset($_POST['let'])){
+      echo"";
+    }
+    if(isset($_POST['let1'])){
+      session_destroy();
+      echo"<script>window.location='signin.php';</script>";
+    }
+     ?>
   </head>
-  <body>
-    <h2>Arrival Request</h2>
+  <body class="bg1">
+
+    <div class="topnav" align="right">
+    <!-- <button onclick="func()"><img src="user.png" /></button> -->
+    <button class="but" onclick="func1()"><b>Dock Details</b></button>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    <button class="but" onclick="func()"><img src="user.png" width="20px" /></button>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+    <!-- <form action="welcome1.php" method="POST">
+    <input type="image" src="user.png" width="20px" name="but" class="but" >
+    </form> -->
+    </div>
+
+    <nav id="floating-menu">
+    <center>
+    <img src="office.png" width="60px" />
+
+    <?php echo "<h1 style=' font-family:Courier New;' ><b>" .$_SESSION['username']."</b></h1>" ?> <br>
+    <form action="welcome1.php" method="POST">
+    <input type="submit" class="buti" name="let" value="My Profile">
+    <input type="submit" class="buti" name="let1" value="Log out">
+    </form>
+    <!-- <button class="buti" onclick="window.location='signin.php'">View Profile</button><br><br> -->
+    <!-- <button class="buti" onclick="f1()">Log out</button><br><br><br> -->
+
+    </nav>
+
+<br /><br />
     <div class="box1">
+      <h2>Arrival Request</h2>
     <form action="welcome3.php" method="POST">
       <input type="submit" value="Show requests" id='lk' name="show">
       <!-- <input type="text" name="nam1" placeholder="Id"> -->
@@ -56,9 +112,24 @@
       <input type="text" name="dock" placeholder="Assign Dock">
       <input type="submit" name="button" value="Accept Request">
     </form>
-  </div>
-  <h2>Departure Request</h2>
+  </div><br><br>
+  <?php
+  if(isset($_POST['show'])){
+    $tb="SELECT *FROM Requests";
+    $res=$con->query($tb);
+    if($res->num_rows>0){
+      echo"<table><tr><th>Ship ID</th><th>Size</th><th>Company</th><th>Type</th><th>Requested Date</th></tr>";
+      while($row=$res->fetch_assoc()){
+        echo"<tr><td>",$row['Ship_id'],"</td><td>",$row['Size'],"</td><td>",$row['Company'],"</td><td>",$row['Type'],"</td><td>",$row['req_date'],"</td></tr>";
+      }
+      echo"</table>";
+      echo "<script>document.getElementById('lk').style.display='none'</script>";
+    }
+  }
+   ?>
+<br><br>
   <div class="box1">
+    <h2>Departure Request</h2>
   <form action="welcome3.php" method="POST">
     <input type="submit" value="Show requests" id='lk' name="show1">
     <!-- <input type="text" name="nam1" placeholder="Id"> -->
@@ -71,19 +142,8 @@
 </center>
 <?php
 echo $_SESSION["username"];
-    if(isset($_POST['show'])){
-      $tb="SELECT *FROM Requests";
-      $res=$con->query($tb);
-      if($res->num_rows>0){
-        echo"<table><tr><th>Ship ID</th><th>Size</th><th>Company</th><th>Type</th><th>Requested Date</th></tr>";
-        while($row=$res->fetch_assoc()){
-          echo"<tr><td>",$row['Ship_id'],"</td><td>",$row['Size'],"</td><td>",$row['Company'],"</td><td>",$row['Type'],"</td><td>",$row['req_date'],"</td></tr>";
-        }
-        echo"</table>";
-        echo "<script>document.getElementById('lk').style.display='none'</script>";
-      }
-    }
-    else if(isset($_POST['button'])){
+
+     if(isset($_POST['button'])){
       $ha=$_POST["id"];
       $hs=$_POST["dock"];
       $se="SELECT *FROM Avadocks where Dock_no='$hs'";
@@ -116,7 +176,7 @@ echo $_SESSION["username"];
                       $to=$rowy['Email'];
                       $subject="Docking request";
                       // $from=
-                      $txt="Your request has been accepted kindly dock into".$hs."Thank you";
+                      $txt="Dear".$_SESSION['username'].",your request for ship has been accepted kindly dock into".$hs."Thank you";
                       $email="rishithreddyaduma@gmail.com";
                       $header = "From:abc@somedomain.com \r\n";
                           $header .= "Cc:afgh@somedomain.com \r\n";

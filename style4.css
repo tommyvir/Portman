@@ -1,0 +1,286 @@
+body {
+    font-family: 'Courier New', monospace;
+}
+p{
+  font-family: 'Courier New', monospace;
+}
+
+table {
+  border-radius:25px;
+  /* font-family: arial, sans-serif; */
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+} */
+
+/* tr:nth-child(even) {
+  background-color: #dddddd;
+} */
+td,th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+tr:nth-child(even){background-color: #f2f2f2;}
+tr:nth-child(odd){background-color: #f2f2f2;}
+tr:hover {background-color: #ddd;}
+input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius:25px;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  background-color: white;
+  /* background-image: url('pass.jpg');
+  background-position: 10px 10px;
+  background-repeat: no-repeat; */
+}
+
+input[type=password]:focus {
+  border: 3px solid #555;
+}
+input[type=submit]{
+  font-family: 'Courier New', monospace;
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+    border-radius:25px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input[type=text] {
+  width: 100%;
+  font-family: 'Courier New', monospace;
+  padding: 8px 15px;
+  margin: 8px 0;
+  border-radius:25px;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  background-color: white;
+  background-image: url('user.jpg');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+}
+
+input[type=text]:focus {
+  font-family: 'Courier New', monospace;
+  border: 3px solid #555;
+}
+input[type=email] {
+  font-family: 'Courier New', monospace;
+  width: 100%;
+  padding: 8px 15px;
+  margin: 8px 0;
+  border-radius:25px;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  background-color: white;
+  /* background-image: url('user.jpg');
+  background-position: 10px 10px;
+  background-repeat: no-repeat; */
+}
+input[type=email]:focus {
+  font-family: 'Courier New', monospace;
+  border: 3px solid #555;
+}
+.bg {
+  background-image: linear-gradient(rgba(4, 9, 30, 0.7),rgba(4, 9, 30, 0.7));
+  background-image: url("gama.jpg");
+  height: 100%;
+  /* leaner graden colors to 0 trancepance
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg1 {
+  background-image: url("sigma.jpg");
+  height: 100%;
+  /* background-position: center; */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bgm {
+background-color:rgb(93, 127, 152);
+}
+.box1 {
+  width: 520px;
+  padding: 1px;
+  border: 3px solid AliceBlue;
+  background-color: AliceBlue;
+  margin: 0;
+  border-radius:20px;
+}
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  border-radius:20px;
+
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius:20px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+.box2 {
+  width: 520px;
+  /* padding: 2px; */
+  /* font-family: 'Alatsi'; */
+  background-color: MediumSeaGreen;
+  border-radius:20px;
+  margin: 0;
+}
+.abc{
+  color: white;
+  background-color:#04AA6D;
+  box-sizing: border-box;
+  justify-content: center;;
+  font-family: 'Courier New';
+  border-radius: 25px;
+  border: 2px #04AA6D solid;
+  padding: 10px;
+}
+.abd{
+  color: black;
+  background-color:white;
+  box-sizing: border-box;
+  justify-content: center;;
+  font-family: 'Courier New';
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-radius: 25px;
+  border: 2px #ccc solid;
+  padding: 10px;
+}
+.abd:focus{
+  color: black;
+  background-color:white;
+  box-sizing: border-box;
+  justify-content: center;
+  font-family: 'Courier New';
+  border-radius: 25px;
+  border: 2px black solid;
+  padding: 10px;
+}
+.abd:hover{
+  box-shadow: 3px 3px 5px #ccc;
+  transition: 0.5s;
+}
+.abc:hover{
+  box-shadow: 2px 2px 2px green;
+  transition: 0.5s;
+}
+input[type=email]:hover{
+  box-shadow: 3px 3px 5px #ccc;
+  transition: 0.5s;
+}
+input[type=text]:hover{
+  box-shadow: 3px 3px 5px #ccc;
+transition: 0.5s;
+}
+input[type=submit]:hover{
+  box-shadow: 2px 2px 2px green;
+transition: 0.5s;
+}
+input[type=password]:hover{
+  box-shadow: 3px 3px 5px #ccc;
+transition: 0.5s;
+}
+.but{
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  padding: 15px 25px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: black;
+  /* background-color: #4CAF50; */
+  border: none;
+  border-radius: 15px;
+  /* box-shadow: 0 9px #999; */
+}
+
+.but:hover {background-color: #3e8e41}
+
+.but:active {
+  background-color: #3e8e41;
+  /* box-shadow: 0 5px #666; */
+  transform: translateY(4px);
+}
+#floating-menu {
+   font-family: sans-serif;
+   background:white;
+   color:black;
+   padding: 5px;;
+   width: 250px;
+   z-index: 100;
+   right:20px;
+   display:none;
+   top:80px;
+   border-radius: 15px;
+   position: fixed;
+ }
+
+ /* .buti{
+   display: inline-block;
+   padding: 10px 10px;
+   font-size: 15px;
+   cursor: pointer;
+   text-align: center;
+   text-decoration: none;
+   outline: none;
+   color: black; */
+   /* background-color: #4CAF50; */
+   /* border: none;
+   border-radius: 15px; */
+   /* box-shadow: 0 9px #999; */
+ /* }
+ .buti:hover {background-color: #3e8e41}
+
+ .buti:active {
+   background-color: #3e8e41;
+   box-shadow: 0 5px #666;
+   transform: translateY(4px);
+ } */

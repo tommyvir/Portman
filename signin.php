@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <link rel="stylesheet" href="style3.css">
   <style>label{
     padding:5px;
     color:#222;
@@ -79,7 +80,7 @@ input[type=password] {
   transition: 0.5s;
   outline: none;
   background-color: white;
-  background-image: url('pass.jpg');
+  /* background-image: url('pass.jpg'); */
   background-position: 10px 10px;
   background-repeat: no-repeat;
 }
@@ -121,7 +122,7 @@ h1 { font-family: Optima;}
   $con->query($ct);
   $bv="CREATE TABLE IF NOT EXISTS Avadocks(Dock_no int PRIMARY KEY,Availability varchar(10))";
   $con->query($bv);
-  // for($i=1;$i<100;){
+  // for($i=1;$i<100;$i=$i+1){
   //   $lka="INSERT INTO Avadocks VALUES('$i','Yes')";
   //   $con->query($lka);
   // }
@@ -171,6 +172,7 @@ h1 { font-family: Optima;}
         while($row=$res->fetch_assoc()){
           if($row['Username']==$u && $row['Password']==$p){
             $_SESSION["username"]=$u;
+            $_SESSION["type"]=$x;
             echo"<script>window.location.href='welcome2.php'</script>";
           }
           else{
@@ -194,6 +196,7 @@ h1 { font-family: Optima;}
         while($row=$res->fetch_assoc()){
           if($row['Username']==$u && $row['Password']==$p){
             $_SESSION["username"]=$u;
+            $_SESSION["type"]=$x;
             echo"<script>window.location.href='welcome1.php'</script>";
           }
           else{
@@ -217,6 +220,7 @@ h1 { font-family: Optima;}
         while($row=$res->fetch_assoc()){
           if($row['Username']==$u && $row['Password']==$p){
             $_SESSION["username"]=$u;
+            $_SESSION["type"]=$x;
             echo"<script>window.location.href='welcome3.php'</script>";
           }
           else{
